@@ -1,6 +1,17 @@
 # pg_jieba
 
+<center>
+
+English | [简体中文](./README.zh.md)
+
+![Visitors](https://count.ayk.moe/KiritaniAyaka/pg_jieba)
+![Docker Pulls](https://img.shields.io/docker/pulls/kiritaniayaka/pg_jieba)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/kiritaniayaka/pg_jieba/latest?logo=Docker&label=Image%20Size)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/kiritaniayaka/pg_jieba/alpine?logo=Docker&label=Image%20Size%20(Alpine))
+
 PostgreSQL Docker image for jieba preinstalled.
+
+</center>
 
 ## Usage
 
