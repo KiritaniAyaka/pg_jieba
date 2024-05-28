@@ -4,6 +4,9 @@ PostgreSQL Docker image for jieba preinstalled.
 
 ## Usage
 
+> [!NOTE]
+> The configuration path of PostgreSQL is `/usr/shared/postgresql` on bullseye(alse `latest`), but `/usr/local/shared/postgresql` on Alpine. All the following examples are on bullseye, be cautious if you are using Alpine variant.
+
 ```sh
 docker run --name postgres_jieba \
   --restart always \
@@ -48,11 +51,11 @@ docker run --name postgres_jieba \
   -p 5432:5432 \
   -e POSTGRES_PASSWORD=your_password \
   -v ./data:/var/lib/postgresql/data \
-  -v ./config/jieba_user.dict:/usr/local/share/postgresql/tsearch_data/jieba_user.dict \ # mount user dictionary
+  -v ./config/jieba_user.dict:/usr/share/postgresql/tsearch_data/jieba_user.dict \ # mount user dictionary
   kiritaniayaka/pg_jieba:latest
 ```
 
-More information about user dictionary, see [pg_jieba extension](https://github.com/jaiminpan/pg_jieba).
+More information about user dictionary, see [jaiminpan/pg_jieba](https://github.com/jaiminpan/pg_jieba).
 
 ## Acknowledgements
 
