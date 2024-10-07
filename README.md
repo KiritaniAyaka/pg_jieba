@@ -70,5 +70,5 @@ More information about user dictionary, see [jaiminpan/pg_jieba](https://github.
 
 ## Acknowledgements
 
-- [pg_jieba extension](https://github.com/jaiminpan/pg_jieba) - The extension used by this project.
+- [jaiminpan/pg_jieba](https://github.com/jaiminpan/pg_jieba) - The extension used by this project.
 - [XYenon/postgres_jieba](https://github.com/XYenon/postgres_jieba) - The project referenced by this project. 
