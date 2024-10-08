@@ -31,13 +31,19 @@ docker run --name postgres_jieba \
 
 ## 数据库配置
 
+此镜像已自动在自定义配置文件 `/etc/postgresql/postgresql.conf` 中将添加 jieba 到 shared_preload_liraries。你可以按需更改这个配置文件。
+
+如果需要使用另一个配置文件，需要注意的是 jieba 最初没有添加到 shared_preload_libraries 中。
+
+### 配置文件示例
+
 使用下面的命令导出配置文件示例：
 
 ```sh
 docker run -i --rm kiritaniayaka/pg_jieba cat /usr/share/postgresql/postgresql.conf.sample > postgresql.conf
 ```
 
-然后将配置文件挂载到容器中并使用：
+### 自定义配置文件
 
 ```sh
 docker run --name postgres_jieba \
@@ -52,7 +58,7 @@ docker run --name postgres_jieba \
 
 此仓库还提供了一个脚本一键导出示例并将 pg_jieba 添加到 preload libraries 配置中。运行 `./setup-config.sh` 即可。（Alpine 则运行：`USE_ALPINE=1 ./setup-config.sh`）
 
-## User Dictionary
+## 用户词典
 
 将用户词典挂载到容器：
 

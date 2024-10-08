@@ -31,13 +31,19 @@ To enable `jieba`, run `CREATE EXTENSION pg_jieba;` in the database you want.
 
 ## Database Configuration
 
+This image is automated add jieba to shared_preload_libraries in a customed configuration file: `/etc/postgresql/postgresql.conf`. You can modify this file to change configuration as you need.
+
+If you need to use another configuration file, note that the jieba is not added to shared_preload_libraries at first.
+
+### Sample config file
+
 Use the following command to export a configuration file sample:
 
 ```sh
 docker run -i --rm kiritaniayaka/pg_jieba cat /usr/share/postgresql/postgresql.conf.sample > postgresql.conf
 ```
 
-Then mount it into container and tell PostgreSQL to using it:
+### Use a custom config file
 
 ```sh
 docker run --name postgres_jieba \
