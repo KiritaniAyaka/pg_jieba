@@ -4,8 +4,8 @@ ENV PG_MAJOR=15
 
 RUN apk update && \
   apk add ca-certificates git cmake g++ make postgresql${PG_MAJOR}-dev icu-dev && \
-  git clone https://github.com/jaiminpan/pg_jieba && cd pg_jieba && \
-  git submodule update --init --recursive && \
+  git clone --depth 1 https://github.com/jaiminpan/pg_jieba && cd pg_jieba && \
+  git submodule update --init --recursive --depth 1 && \
   mkdir build && cd build && \
   cmake -DPostgreSQL_TYPE_INCLUDE_DIR=/usr/include/postgresql/${PG_MAJOR}/server .. && \
   make && make install

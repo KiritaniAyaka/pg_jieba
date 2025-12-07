@@ -4,8 +4,8 @@ ENV PG_MAJOR=15
 
 RUN apt update && \
   apt-get install -y --no-install-recommends ca-certificates git cmake build-essential postgresql-server-dev-${PG_MAJOR} icu-devtools && \
-  git clone https://github.com/jaiminpan/pg_jieba && cd pg_jieba && \
-  git submodule update --init --recursive && \
+  git clone --depth 1 https://github.com/jaiminpan/pg_jieba && cd pg_jieba && \
+  git submodule update --init --recursive --depth 1 && \
   mkdir build && cd build && \
   cmake -DPostgreSQL_TYPE_INCLUDE_DIR=/usr/include/postgresql/${PG_MAJOR}/server .. && \
   make && make install
