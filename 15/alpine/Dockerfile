@@ -1,4 +1,4 @@
-FROM postgres:15-alpine AS build
+FROM postgres:15-alpine3.22 AS build
 
 ENV PG_MAJOR=15
 
@@ -10,7 +10,7 @@ RUN apk update && \
   cmake -DPostgreSQL_TYPE_INCLUDE_DIR=/usr/include/postgresql/${PG_MAJOR}/server .. && \
   make && make install
 
-FROM postgres:15-alpine AS production
+FROM postgres:15-alpine3.22 AS production
 
 RUN --mount=from=build,source=/,target=/build \
   cat /build/pg_jieba/build/install_manifest.txt | xargs -i cp -p /build{} {} && \
